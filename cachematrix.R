@@ -42,3 +42,16 @@ cacheSolve <- function(x, ...) {
     x$setcache(local_inv_matrix)
     local_inv_matrix
 }
+
+m2 <- matrix(rnorm(1:1000000), 1000, 1000)
+ex2 <- makeCacheMatrix(m2)
+start <- Sys.time()
+invisible(cacheSolve(ex2))
+end <- Sys.time()
+end - start 
+
+## 2nd time:
+start <- Sys.time()
+invisible(cacheSolve(ex2))
+end <- Sys.time()
+end - start 
